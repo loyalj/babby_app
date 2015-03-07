@@ -1,0 +1,5 @@
+.list-group-item.status-true {
+	background-color: #f1f1f1;
+	color: gray;
+	text-decoration: line-through;
+}
