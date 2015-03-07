@@ -56,7 +56,12 @@
 					<div class='panel-body'>
 						<ul class="list-group">
 							<li ng-if='newItem' class='list-group-item'>
-								<input type='text' ng-model='newItem.name' class='form-control'>
+								<div class="input-group">
+									<input type='text' ng-model='newItem.name' class='form-control'>
+									<div class="input-group-btn">
+										<button class='btn btn-default'>+</button>
+									</div>
+								</div>
 							</li>
 							<li ng-repeat="item in items" class="status-{{item.status.value}} list-group-item" ng-swipe-left='doneItem(item)' ng-swipe-right='doneItem(item)'>
 								<label>
