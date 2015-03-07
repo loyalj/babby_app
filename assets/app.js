@@ -29,7 +29,7 @@ angular.module('listApp', ['ngTouch', 'yaru22.angular-timeago'])
 		};
 
 		$scope.updateItem = function (item) {
-			$http.post(config.url + '/list/' + config.hardwareId + '/' + item._id, item.status.value);
+			$http.post(config.url + '/list/' + config.hardwareId + '/' + item._id, item.status);
 		};
 
 		$scope.doneItem = function (item) {
