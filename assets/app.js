@@ -23,15 +23,13 @@ angular.module('listApp', ['ngTouch', 'yaru22.angular-timeago'])
 		};
 
 		$scope.getItems = function () {
-			$http.get(config.url + '/list/' + config.hardwareId, function (data) {
+			$http.get(config.url + '/list/' + config.hardwareId).success(function (data) {
 				$scope.items = data.items
 			});
 		};
 
 		$scope.updateItem = function (item) {
-			$http.post(config.url + '/list/' + config.hardwareId + '/' + item._id, item.status.value, function(data) {
-				
-			});
+			$http.post(config.url + '/list/' + config.hardwareId + '/' + item._id, item.status.value);
 		};
 
 		$scope.doneItem = function (item) {
