@@ -11,6 +11,24 @@ angular.module('listApp', ['ngTouch', 'yaru22.angular-timeago'])
 				lastUpdated: '2015-02-03', 
 				status: 
 					{ 
+						value: false,
+						priority: true
+					}
+				},
+				{
+				name: 'Diapers', 
+				lastUpdated: '2015-08-01', 
+				status: 
+					{ 
+						value: false,
+						priority: false
+					}
+				},
+				{
+				name: 'Formula', 
+				lastUpdated: '2015-02-03', 
+				status: 
+					{ 
 						value: true,
 						priority: true
 					}

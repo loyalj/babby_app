@@ -41,11 +41,12 @@
 			<div ng-controller="ListController">
 				<ul class="list-group">
 					<li ng-repeat="item in items" class="status-{{item.status.value}} list-group-item" ng-swipe-left='doneItem(item)' ng-swipe-right='doneItem(item)'>
-						<input class='hidden-xs' type="checkbox" ng-model="item.status.value" ng-change='updateItem(item)'>
-						<span ng-if='status.priority'></span>
-						<span>{{item.name}}</span>
+						<label>
+							<input class='hidden-xs' type="checkbox" ng-model="item.status.value" ng-change='updateItem(item)'>
+							<span>{{item.name}}</span>
+						</label>
+						<span ng-if='item.status.priority' class='glyphicon glyphicon-exclamation-sign text-danger'></span>
 						<span class="badge">3 days</span>
-						<span class='glyphicon glyphicon-exclamation-sign text-danger'></span>
 					</li>
 				</ul>
 			</div>
