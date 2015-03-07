@@ -1,5 +1,15 @@
+img.icon {
+	width: 24px;
+	height: 24px;
+	opacity: 0.6;
+}
+
 .list-group-item.status-true {
 	background-color: #f1f1f1;
 	color: gray;
+	text-decoration: line-through;
+}
+
+.list-group-item.status-true label {
 	text-decoration: line-through;
 }

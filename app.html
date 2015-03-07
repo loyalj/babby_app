@@ -39,16 +39,36 @@
 		</nav>
 		<div class='container'>
 			<div ng-controller="ListController">
-				<ul class="list-group">
-					<li ng-repeat="item in items" class="status-{{item.status.value}} list-group-item" ng-swipe-left='doneItem(item)' ng-swipe-right='doneItem(item)'>
-						<label>
-							<input class='hidden-xs' type="checkbox" ng-model="item.status.value" ng-change='updateItem(item)'>
-							<span>{{item.name}}</span>
-						</label>
-						<span ng-if='item.status.priority' class='glyphicon glyphicon-exclamation-sign text-danger'></span>
-						<span class="badge">3 days</span>
-					</li>
-				</ul>
+				<div class='panel panel-default'>
+					<div class='panel-heading'>
+						<div class="btn-group">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								<img src='./assets/baby.png' class='icon'>
+								Baby's List <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#"><img src='./assets/woman.png' class='icon'> Mom's List</a></li>
+								<li><a href="#"><img src='./assets/man.png' class='icon'> Dad's List</a></li>
+							</ul>
+						</div>
+						<div class='btn btn-success pull-right' ng-click='add()' ng-hide='newItem'>Add Item</div>
+					</div>
+					<div class='panel-body'>
+						<ul class="list-group">
+							<li ng-if='newItem' class='list-group-item'>
+								<input type='text' ng-model='newItem.name' class='form-control'>
+							</li>
+							<li ng-repeat="item in items" class="status-{{item.status.value}} list-group-item" ng-swipe-left='doneItem(item)' ng-swipe-right='doneItem(item)'>
+								<label>
+									<input class='hidden-xs' type="checkbox" ng-model="item.status.value" ng-change='updateItem(item)'>
+									{{item.name}}
+								</label>
+								<span ng-if='item.status.priority' class='glyphicon glyphicon-exclamation-sign text-danger'></span>
+								<span class="badge">3 days</span>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>

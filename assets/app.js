@@ -1,39 +1,19 @@
 var config = {
-	url: "http://wefoundlove.in:3000/api/v0/",
-	hardwareId: "fog"
+	url: "http://wefoundlove.in:3000/api/v0",
+	hardwareId: "fogden"
 };
 
 angular.module('listApp', ['ngTouch', 'yaru22.angular-timeago'])
 	.controller('ListController', ['$scope', '$http', '$interval', function($scope, $http, $interval) {
-		$scope.items = [
-			{
-				name: 'Formula', 
-				lastUpdated: '2015-02-03', 
-				status: 
-					{ 
-						value: false,
-						priority: true
-					}
-				},
-				{
-				name: 'Diapers', 
-				lastUpdated: '2015-08-01', 
-				status: 
-					{ 
-						value: false,
-						priority: false
-					}
-				},
-				{
-				name: 'Formula', 
-				lastUpdated: '2015-02-03', 
-				status: 
-					{ 
-						value: true,
-						priority: true
-					}
+		$scope.add = function() {
+			$scope.newItem = {
+				name: '',
+				status: {
+					value: false,
+					priority: false
 				}
-			];
+			}
+		};
 
 		$scope.getItems = function () {
 			$http.post(config.url + '/list/' + config.hardwareId, function (data) {
@@ -58,8 +38,9 @@ angular.module('listApp', ['ngTouch', 'yaru22.angular-timeago'])
 			item.status.value = 0;
 			$scope.updateItem(item);
 		}
-
-		// $interval(function(){
-		// 	$scope.getItems()		
-		// }, 1000);
+		
+		$scope.getItems()
+		$interval(function(){
+			$scope.getItems()
+		}, 5000);
 	}]);
