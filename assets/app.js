@@ -5,6 +5,8 @@ var config = {
 
 angular.module('listApp', ['ngTouch', 'yaru22.angular-timeago'])
 	.controller('ListController', ['$scope', '$http', '$interval', function($scope, $http, $interval) {
+		$scope.items = []
+
 		$scope.add = function() {
 			$scope.newItem = {
 				name: '',
@@ -13,6 +15,11 @@ angular.module('listApp', ['ngTouch', 'yaru22.angular-timeago'])
 					priority: false
 				}
 			}
+		};
+
+		$scope.addItem = function(item) {
+			$scope.items.unshift(item)
+			$scope.newItem = null
 		};
 
 		$scope.getItems = function () {
