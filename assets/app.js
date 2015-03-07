@@ -23,7 +23,7 @@ angular.module('listApp', ['ngTouch', 'yaru22.angular-timeago'])
 		};
 
 		$scope.getItems = function () {
-			$http.post(config.url + '/list/' + config.hardwareId, function (data) {
+			$http.get(config.url + '/list/' + config.hardwareId, function (data) {
 				$scope.items = data.items
 			});
 		};
