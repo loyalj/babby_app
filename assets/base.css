@@ -4,12 +4,12 @@ img.icon {
 	opacity: 0.6;
 }
 
-.list-group-item.status-true {
+.list-group-item.status-false {
 	background-color: #f1f1f1;
 	color: gray;
 	text-decoration: line-through;
 }
 
-.list-group-item.status-true label {
+.list-group-item.status-false label {
 	text-decoration: line-through;
 }
